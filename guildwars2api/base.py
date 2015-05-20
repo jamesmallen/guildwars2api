@@ -81,7 +81,7 @@ class BaseResource(object):
 
         while kwargs['page'] < page_total:
             r = self.response(*args, **kwargs)
-            if r.status_code == 200:
+            if r.status_code == 200 or r.status_code == 206:
                 for i in r.json():
                     yield i
 
